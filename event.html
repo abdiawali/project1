@@ -1,0 +1,55 @@
+<head>
+    <title>Events</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="event.js"></script>
+    <script async defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link type="text/css" href="style.css" rel="stylesheet">
+
+</head>
+<body>
+    <h2>View events</h2>
+    <p>Click the checkmark Icon if you are intersted</p>
+    <h2>Events you are intersted</h2>
+
+    <!--displays interested events here -->
+    <p class="intersted" id="intersted">here</p>
+
+    <!--displays list of events here -->
+    <div id="events"></div>
+
+    <!--allows users to create new event and add it to the list of events -->
+    <h2>Create and add new event</h2>
+        <label for="name">Name of the event?</label>
+        <input id="name" name="name" ></input>
+        <br>
+        <label for="what">what is the event about?</label>
+        <input id="what" name="what" ></input>
+        <br>
+        <label for="where">Where is the event at?</label>
+        <input id="where" name="where" ></input>
+        <br>
+        <label for="when">When is the event</label>
+        <input id="when" name="when" ></input>
+        <br>
+        <p> Add Picture <input id="images" type="file" name="image"></p>
+        <button Id="add-event" onclick="addEvent()">Add</button>
+
+
+        <!--script for the new event added on click you call functiion addEevent() which will
+        oush value to the eventElement-->
+        <script>
+            function addEvent() {
+            var pos = events.length + 1;
+            events.push({	"id": 	pos,
+                            "name":	document.getElementById("name").value,
+                            "what":	document.getElementById("what").value,
+                            "where":document.getElementById("where").value,
+                            "when":	document.getElementById("when").value,
+                            "images": new Array(document.getElementById("images").files[0].name)});
+            let eventElement = createeventInfo(events[pos-1])
+            data.appendChild(eventElement)
+        }
+        </script>
+
+</body>
